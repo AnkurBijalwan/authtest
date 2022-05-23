@@ -1,0 +1,9 @@
+prof: dev
+server:
+  ssl:
+    key-store: classpath:springboot.jks
+    key-store-password: password
+    key-store-type: pkcs12
+    key-alias: springboot
+    key-password: password
+port: 8443

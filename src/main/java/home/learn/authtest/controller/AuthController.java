@@ -1,8 +1,11 @@
 package home.learn.authtest.controller;
 
 import home.learn.authtest.comp.C1;
+import home.learn.authtest.comp.Config;
+import home.learn.authtest.comp.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,7 +18,7 @@ import java.util.concurrent.ExecutionException;
 @RequestMapping("/tweet")
 public class AuthController {
 
-    @Value("${prof}")
+    @Value("dev")
     private String prof;
 
     @Autowired
@@ -23,6 +26,13 @@ public class AuthController {
 
     @RequestMapping("/")
     public String test(){
+        AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(Config.class);
+
+        User user=context.getBean(User.class);
+        System.out.println(user.display());
+
+        context.close();
        return "success123";
     }
 

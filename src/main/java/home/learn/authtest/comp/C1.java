@@ -10,7 +10,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @Component
-@Profile("prod")
 public class C1 {
 
     @Autowired
